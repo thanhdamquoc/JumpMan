@@ -6,6 +6,29 @@ let lifeDisplay = document.getElementById("lifeDisplay");
 c.style.border = "1px solid black";
 c.width = 700;
 c.height = 500;
+//button input
+function movePlayer(inputCode) {
+    switch (inputCode) {
+        case 0:
+            player.speedX = -5;
+            break;
+        case 2:
+            player.speedX = 5;
+            break;
+        case 1:
+            if (player.touchesGround === true) {
+                player.speedY = 20;
+                player.color = randomizeColor();
+            }
+            break;
+        case 3:
+            player.speedX = 0;
+            if (player.touchesGround === false) {
+                player.speedY = -10;
+            }
+            break;
+    }
+}
 //keyboard input
 addEventListener("keydown", getKey);
 function getKey(event) {
