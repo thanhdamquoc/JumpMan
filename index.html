@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jump Man Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style>
+        body {
+            background: #F0F8FF;
+        }
         #infoDiv {
             position: absolute;
             left: 718px;
@@ -13,7 +18,7 @@
             padding: 20px;
             text-align: center;
         }
-        td {
+        #infoDiv td {
             border: 1px solid black;
         }
         #buttonInputPanel {
@@ -68,9 +73,14 @@
             <td style="background: green; color: black">Green</td>
             <td>Teleport randomly</td>
         </tr>
-    </table>
+    </table><br>
     <p>*Move using arrow keys on keyboard (PC users) or buttons on screen (Mobile users)</p>
-    <p>Change log:<br>v1.1: Add button input for mobile users<br>v1.2: Disable double tap zoom for mobile users</p>
+    <p style="text-align: left">
+        <strong>Change log:</strong><br>
+        v1.1: Add button input for mobile users<br>
+        v1.2: Disable double tap zoom for mobile users<br>
+        v1.3: Update User Interface<br>
+    </p>
 </div>
 <div id="buttonInputPanel">
     <table>
