@@ -231,7 +231,8 @@ function render() {
         let x = Math.random() * (c.width-40) + 20;
         let y = c.height - (Math.random() * 160 + 40);
         let size = 20;
-        let value = getRandomInt(1,7);
+        let numberOfPowerUps = 6;
+        let value = getRandomInt(1,numberOfPowerUps);
         let color;
         switch (value) {
             case 1:
@@ -249,12 +250,12 @@ function render() {
             case 5:
                 color = "yellow";
                 break;
-            case 6:
-                color = "green";
-                break;
-            case 7:
+            // case 6:
+            //     color = "green";
+            //     break;
+            case numberOfPowerUps:
                 color = "purple";
-                value = getRandomInt(1,6);
+                value = getRandomInt(1,numberOfPowerUps-1);
                 break;
         }
         powerUps.push(new PowerUp(x,y,size,value,color));
@@ -276,19 +277,20 @@ function render() {
                 player.size+=5;
             } else if (thisPowerUp.value === 3) {
                 player.isCrazy = true;
-                setTimeout(function () {player.isCrazy = false},3000);
+                setTimeout(function () {player.isCrazy = false},5000);
             } else if (thisPowerUp.value === 4) {
                 for (let i = 0; i < enemies.length; i++) {
                     enemies[i].size = 5;
                 }
             } else if (thisPowerUp.value === 5) {
                 gameScore += 1000;
-            } else if (thisPowerUp.value === 6) {
-                player.y = getRandomInt(player.size, c.height-player.size);
-                player.x = getRandomInt(player.size, c.width-player.size);
-                player.touchesGround = false;
-                enemies = [];
             }
+            // else if (thisPowerUp.value === 6) {
+            //     player.y = getRandomInt(player.size, c.height-player.size);
+            //     player.x = getRandomInt(player.size, c.width-player.size);
+            //     player.touchesGround = false;
+            //     enemies = [];
+            // }
             powerUps.splice(i,1);
         }
     }
