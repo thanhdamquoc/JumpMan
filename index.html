@@ -25,9 +25,12 @@
             width: 100px;
             height: 100px;
         }
+        .disable-dbl-tap-zoom {
+            touch-action: manipulation;
+        }
     </style>
 </head>
-<body>
+<body class="disable-dbl-tap-zoom">
 <canvas id="myCanvas"></canvas>
 <div id = "infoDiv">
     <h2>Jump Man!</h2>
