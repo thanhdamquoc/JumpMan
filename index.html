@@ -6,98 +6,98 @@
     <title>Jump Man Game</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style>
+        #myCanvas {
+            width: 100%;
+        }
         body {
+            margin-top: 10px;
             background: #F0F8FF;
         }
         #infoDiv {
-            position: absolute;
-            left: 718px;
-            top: 8px;
-            width: 500px;
             border: 1px solid black;
             padding: 20px;
             text-align: center;
         }
         #infoDiv td {
+            margin-top: 20px;
             border: 1px solid black;
         }
-        #buttonInputPanel {
-            position: absolute;
-            left: 200px;
-            top: 515px;
-        }
-        #buttonInputPanel button {
-            width: 100px;
+        button {
             height: 100px;
         }
         .disable-dbl-tap-zoom {
             touch-action: manipulation;
         }
+        #buttonDiv {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body class="disable-dbl-tap-zoom">
-<canvas id="myCanvas"></canvas>
-<div id = "infoDiv">
-    <h2>Jump Man!</h2>
-    <p>Score:</p>
-    <h1 id="scoreDisplay">0</h1>
-    <p>Life remaining:</p>
-    <h1 id="lifeDisplay">0</h1>
-    <p>Power:</p>
-    <table>
-        <tr>
-            <td style="width: 50px">White</td>
-            <td style="width: 200px">Destroy enemies</td>
-        </tr>
-        <tr>
-            <td style="background: red">Red</td>
-            <td>Increase life (1)</td>
-        </tr>
-        <tr>
-            <td style="background: black; color: white">Black</td>
-            <td>Invulnerable (5s)</td>
-        </tr>
-        <tr>
-            <td style="background: blue; color: white">Blue</td>
-            <td>Shrink enemies</td>
-        </tr>
-        <tr>
-            <td style="background: yellow; color: black">Yellow</td>
-            <td>Increase score (1000)</td>
-        </tr>
-        <tr>
-            <td style="background: purple; color: white">Purple</td>
-            <td>Random power</td>
-        </tr>
-<!--        <tr>-->
-<!--            <td style="background: green; color: black">Green</td>-->
-<!--            <td>Teleport randomly</td>-->
-<!--        </tr>-->
-    </table><br>
-    <p>*Move using arrow keys on keyboard (PC users) or buttons on screen (Mobile users)</p>
-    <p style="text-align: left">
-        <strong>Change log:</strong><br>
-        <strong>v1.1</strong>: Add button input for mobile users<br>
-        <strong>v1.2</strong>: Disable double tap zoom for mobile users<br>
-        <strong>v1.3</strong>: Update User Interface<br>
-        <strong>v1.4</strong>: Increase <span style="color: black; font-weight: bold">black</span> power to 5s, remove <span style="color: green; font-weight: bold">green</span>  power (teleport randomly)<br>
-    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-7">
+            <div class="row"><canvas id="myCanvas"></canvas></div>
+            <div class="row">
+                <div class="col-12" id="buttonDiv">
+                    <div class="row justify-content-center">
+                        <button class="col-4" onclick="movePlayer(1)">^</button>
+                    </div>
+                    <div class="row">
+                        <button class="col-4" onclick="movePlayer(0)"><</button>
+                        <button class="col-4" onclick="movePlayer(3)">v</button>
+                        <button class="col-4" onclick="movePlayer(2)">></button>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-12 col-md-5">
+            <div id = "infoDiv">
+                <h2>Jump Man!</h2>
+                <p>Score:</p>
+                <h1 id="scoreDisplay">0</h1>
+                <p>Life remaining:</p>
+                <h1 id="lifeDisplay">0</h1>
+                <p>Power:</p>
+                <table>
+                    <tr>
+                        <td style="width: 50px; background: white">White</td>
+                        <td style="width: 200px">Destroy enemies</td>
+                    </tr>
+                    <tr>
+                        <td style="background: red">Red</td>
+                        <td>Increase life (1)</td>
+                    </tr>
+                    <tr>
+                        <td style="background: black; color: white">Black</td>
+                        <td>Invulnerable (5s)</td>
+                    </tr>
+                    <tr>
+                        <td style="background: blue; color: white">Blue</td>
+                        <td>Shrink enemies</td>
+                    </tr>
+                    <tr>
+                        <td style="background: yellow; color: black">Yellow</td>
+                        <td>Increase score (1000)</td>
+                    </tr>
+                    <tr>
+                        <td style="background: purple; color: white">Purple</td>
+                        <td>Random power</td>
+                    </tr>
+                </table><br>
+                <p>*Move using arrow keys on keyboard (PC users) or buttons on screen (Mobile users)</p>
+                <p style="text-align: left">
+                    <strong>Change log:</strong><br>
+                    <strong>v1.1</strong>: Add button input for mobile users<br>
+                    <strong>v1.2</strong>: Disable double tap zoom for mobile users<br>
+                    <strong>v1.3</strong>: Update User Interface<br>
+                    <strong>v1.4</strong>: Increase <span style="color: black; font-weight: bold">black</span> power to 5s, remove <span style="color: green; font-weight: bold">green</span>  power (teleport randomly)<br>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="buttonInputPanel">
-    <table>
-        <tr>
-            <td></td>
-            <td><button onclick="movePlayer(1)">^</button></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><button onclick="movePlayer(0)"><</button></td>
-            <td><button onclick="movePlayer(3)">v</button></td>
-            <td><button onclick="movePlayer(2)">></button></td>
-        </tr>
-    </table>
-</div>
-
 </body>
 </html>
 <script src="script.js">

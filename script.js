@@ -3,7 +3,7 @@ let ctx = c.getContext("2d");
 let scoreDisplay = document.getElementById("scoreDisplay");
 let lifeDisplay = document.getElementById("lifeDisplay");
 
-c.style.border = "1px solid black";
+// c.style.border = "1px solid black";
 c.width = 700;
 c.height = 500;
 //button input
